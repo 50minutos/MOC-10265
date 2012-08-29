@@ -1,0 +1,11 @@
+﻿<#@ template language="C#"#>
+<# Imprimir("agnaldo"); #>
+<# Imprimir("50minutos"); #>
+<# Imprimir("50minutos.com.br"); #>
+<# Imprimir("agnaldo@50minutos.com.br"); #>
+<#+
+    private void Imprimir(String s)
+    {
+        this.WriteLine("//{0}", s);
+    }
+#>

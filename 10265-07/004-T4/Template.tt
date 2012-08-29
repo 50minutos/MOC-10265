@@ -1,0 +1,7 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+/*
+veja os arquivos gerados na pasta 
+	<#= Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) #>\Temp 
+
+Host: <#= Host.TemplateFile #>
+*/

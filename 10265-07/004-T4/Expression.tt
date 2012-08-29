@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" #>
+<#@ output extension=".cs"#>
+<#
+    for(int i = 0; i < 10; i++)
+    {
+#>
+// expression => <#= i + 1 #>
+<#
+    }
+#>

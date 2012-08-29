@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" #>
+<#@ output extension="txt" #>
+<#@ parameter name="nome" type="System.String" #>
+<#@ parameter name="email" type="System.String" #>
+Nome:
+	<#= nome #>
+	<# Write(nome); #>
+
+
+E-mail:
+	<#= email #>
+	<# Write(email); #>

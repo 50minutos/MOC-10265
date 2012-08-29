@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Servico" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2481/Servico.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2481/Servico.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2481/Servico.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/_001_AW" />
+      <xsd:import schemaLocation="http://localhost:2481/Servico.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:2481/Servico.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServico_GetContactById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactById" />
+  </wsdl:message>
+  <wsdl:message name="IServico_GetContactById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServico_InsertContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertContact" />
+  </wsdl:message>
+  <wsdl:message name="IServico_InsertContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServico_UpdateContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContact" />
+  </wsdl:message>
+  <wsdl:message name="IServico_UpdateContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServico_DeleteContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="IServico_DeleteContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServico">
+    <wsdl:operation name="GetContactById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServico/GetContactById" message="tns:IServico_GetContactById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServico/GetContactByIdResponse" message="tns:IServico_GetContactById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServico/InsertContact" message="tns:IServico_InsertContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServico/InsertContactResponse" message="tns:IServico_InsertContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServico/UpdateContact" message="tns:IServico_UpdateContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServico/UpdateContactResponse" message="tns:IServico_UpdateContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServico/DeleteContact" message="tns:IServico_DeleteContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServico/DeleteContactResponse" message="tns:IServico_DeleteContact_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServico" type="tns:IServico">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetContactById">
+      <soap:operation soapAction="http://tempuri.org/IServico/GetContactById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertContact">
+      <soap:operation soapAction="http://tempuri.org/IServico/InsertContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <soap:operation soapAction="http://tempuri.org/IServico/UpdateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://tempuri.org/IServico/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Servico">
+    <wsdl:port name="BasicHttpBinding_IServico" binding="tns:BasicHttpBinding_IServico">
+      <soap:address location="http://localhost:2481/Servico.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

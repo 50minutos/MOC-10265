@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="AdventureWorksEntities">
+    <EntitySetMapping Name="Contatos">
+      <EntityTypeMapping TypeName="AdventureWorksModel.Contato">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="NameStyle" ColumnName="NameStyle" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Nome" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Sobrenome" ColumnName="LastName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="EmailPromotion" ColumnName="EmailPromotion" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="AdditionalContactInfo" ColumnName="AdditionalContactInfo" />
+          <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+          <ScalarProperty Name="DataDeAlteracao" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

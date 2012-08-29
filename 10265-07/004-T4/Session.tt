@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+<#@ output extension="txt" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#
+	var s = new TextTemplatingSession();
+	s["nome"] = "agnaldo";
+	s["email"] = "agnaldo@50minutos.com.br";
+
+	var h = this.Host;
+	
+	var sh = (ITextTemplatingSessionHost)h;
+	sh.Session = s;
+
+	var p = h.ResolvePath("Parameter.tt");
+	
+	var e = new Engine();
+	
+	var txt = e.ProcessTemplate(File.ReadAllText(p), h);
+
+	this.Write(txt);
+#>

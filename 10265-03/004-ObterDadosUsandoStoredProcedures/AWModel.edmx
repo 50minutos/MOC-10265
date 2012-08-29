@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AdventureWorksModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Store.Employee" store:Type="Tables" Schema="HumanResources" />
+          <AssociationSet Name="FK_Employee_Employee_ManagerID" Association="AdventureWorksModel.Store.FK_Employee_Employee_ManagerID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NationalIDNumber" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="LoginID" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ManagerID" Type="int" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="MaritalStatus" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="Gender" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="HireDate" Type="datetime" Nullable="false" />
+          <Property Name="SalariedFlag" Type="bit" Nullable="false" />
+          <Property Name="VacationHours" Type="smallint" Nullable="false" />
+          <Property Name="SickLeaveHours" Type="smallint" Nullable="false" />
+          <Property Name="CurrentFlag" Type="bit" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Employee_Employee_ManagerID">
+          <End Role="Employee" Type="AdventureWorksModel.Store.Employee" Multiplicity="0..1" />
+          <End Role="Employee1" Type="AdventureWorksModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="uspGetManagerEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ManagerID" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Funcionario" />
+          <AssociationSet Name="FK_Employee_Employee_ManagerID" Association="AdventureWorksModel.FK_Employee_Employee_ManagerID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
+          <FunctionImport Name="ObterSubordinados" ReturnType="Collection(AdventureWorksModel.ObterSubordinados_Result)">
+            <Parameter Name="ManagerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NationalIDNumber" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ContactID" Nullable="false" />
+          <Property Type="String" Name="LoginID" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ManagerID" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" />
+          <Property Type="String" Name="MaritalStatus" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Gender" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="HireDate" Nullable="false" />
+          <Property Type="Boolean" Name="SalariedFlag" Nullable="false" />
+          <Property Type="Int16" Name="VacationHours" Nullable="false" />
+          <Property Type="Int16" Name="SickLeaveHours" Nullable="false" />
+          <Property Type="Boolean" Name="CurrentFlag" Nullable="false" />
+          <Property Type="Guid" Name="rowguid" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <NavigationProperty Name="Employee1" Relationship="AdventureWorksModel.FK_Employee_Employee_ManagerID" FromRole="Employee" ToRole="Employee1" />
+          <NavigationProperty Name="Employee2" Relationship="AdventureWorksModel.FK_Employee_Employee_ManagerID" FromRole="Employee1" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Employee_Employee_ManagerID">
+          <End Type="AdventureWorksModel.Funcionario" Role="Employee" Multiplicity="0..1" />
+          <End Type="AdventureWorksModel.Funcionario" Role="Employee1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="ObterSubordinados_Result">
+          <Property Type="Int32" Name="RecursionLevel" Nullable="true" />
+          <Property Type="Int32" Name="ManagerID" Nullable="true" />
+          <Property Type="String" Name="ManagerFirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ManagerLastName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="AdventureWorksEntities" >
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="AdventureWorksModel.Funcionario">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="CurrentFlag" ColumnName="CurrentFlag" />
+                <ScalarProperty Name="SickLeaveHours" ColumnName="SickLeaveHours" />
+                <ScalarProperty Name="VacationHours" ColumnName="VacationHours" />
+                <ScalarProperty Name="SalariedFlag" ColumnName="SalariedFlag" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="NationalIDNumber" ColumnName="NationalIDNumber" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ObterSubordinados" FunctionName="AdventureWorksModel.Store.uspGetManagerEmployees" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorksModel.ObterSubordinados_Result">
+                <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
+                <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="AWModel" >
+        <EntityTypeShape EntityType="AdventureWorksModel.Funcionario" Width="1.5" PointX="0.75" PointY="0.75" Height="4.480205078125" />
+        <AssociationConnector Association="AdventureWorksModel.FK_Employee_Employee_ManagerID" >
+          <ConnectorPoint PointX="1.2819230769230767" PointY="5.230205078125" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="5.480205078125" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="5.480205078125" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="5.230205078125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

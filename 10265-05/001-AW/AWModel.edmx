@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AdventureWorksModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Store.Employee" store:Type="Tables" Schema="HumanResources" />
+          <EntitySet Name="Contact" EntityType="AdventureWorksModel.Store.Contact" store:Type="Tables" Schema="Person" />
+          <EntitySet Name="Product" EntityType="AdventureWorksModel.Store.Product" store:Type="Tables" Schema="Production" />
+          <AssociationSet Name="FK_Employee_Contact_ContactID" Association="AdventureWorksModel.Store.FK_Employee_Contact_ContactID">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Employee_ManagerID" Association="AdventureWorksModel.Store.FK_Employee_Employee_ManagerID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NationalIDNumber" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="LoginID" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ManagerID" Type="int" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="MaritalStatus" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="Gender" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="HireDate" Type="datetime" Nullable="false" />
+          <Property Name="SalariedFlag" Type="bit" Nullable="false" />
+          <Property Name="VacationHours" Type="smallint" Nullable="false" />
+          <Property Name="SickLeaveHours" Type="smallint" Nullable="false" />
+          <Property Name="CurrentFlag" Type="bit" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NameStyle" Type="bit" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="8" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailPromotion" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="PasswordHash" Type="varchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordSalt" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="AdditionalContactInfo" Type="xml" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductNumber" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="MakeFlag" Type="bit" Nullable="false" />
+          <Property Name="FinishedGoodsFlag" Type="bit" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="15" />
+          <Property Name="SafetyStockLevel" Type="smallint" Nullable="false" />
+          <Property Name="ReorderPoint" Type="smallint" Nullable="false" />
+          <Property Name="StandardCost" Type="money" Nullable="false" />
+          <Property Name="ListPrice" Type="money" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="5" />
+          <Property Name="SizeUnitMeasureCode" Type="nchar" MaxLength="3" />
+          <Property Name="WeightUnitMeasureCode" Type="nchar" MaxLength="3" />
+          <Property Name="Weight" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="DaysToManufacture" Type="int" Nullable="false" />
+          <Property Name="ProductLine" Type="nchar" MaxLength="2" />
+          <Property Name="Class" Type="nchar" MaxLength="2" />
+          <Property Name="Style" Type="nchar" MaxLength="2" />
+          <Property Name="ProductSubcategoryID" Type="int" />
+          <Property Name="ProductModelID" Type="int" />
+          <Property Name="SellStartDate" Type="datetime" Nullable="false" />
+          <Property Name="SellEndDate" Type="datetime" />
+          <Property Name="DiscontinuedDate" Type="datetime" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Employee_Contact_ContactID">
+          <End Role="Contact" Type="AdventureWorksModel.Store.Contact" Multiplicity="1" />
+          <End Role="Employee" Type="AdventureWorksModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Employee_ManagerID">
+          <End Role="Employee" Type="AdventureWorksModel.Store.Employee" Multiplicity="0..1" />
+          <End Role="Employee1" Type="AdventureWorksModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contatos" EntityType="AdventureWorksModel.Contato" />
+          <EntitySet Name="Produtos" EntityType="AdventureWorksModel.Produto" />
+          <EntitySet Name="Funcionarios" EntityType="AdventureWorksModel.Funcionario" />
+          <AssociationSet Name="FK_Employee_Contact_ContactID" Association="AdventureWorksModel.FK_Employee_Contact_ContactID">
+            <End Role="Contato" EntitySet="Contatos" />
+            <End Role="Employee" EntitySet="Funcionarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Employee_ManagerID" Association="AdventureWorksModel.FK_Employee_Employee_ManagerID">
+            <End Role="Employee" EntitySet="Funcionarios" />
+            <End Role="Employee1" EntitySet="Funcionarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contato">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStyle" Type="Boolean" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Sobrenome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Suffix" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmailPromotion" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="AdditionalContactInfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="DataDeAlteracao" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="AdventureWorksModel.FK_Employee_Contact_ContactID" FromRole="Contato" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProductNumber" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="MakeFlag" Type="Boolean" Nullable="false" />
+          <Property Name="FinishedGoodsFlag" Type="Boolean" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="SafetyStockLevel" Type="Int16" Nullable="false" />
+          <Property Name="ReorderPoint" Type="Int16" Nullable="false" />
+          <Property Name="StandardCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Size" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="SizeUnitMeasureCode" Type="String" MaxLength="3" Unicode="true" FixedLength="true" />
+          <Property Name="WeightUnitMeasureCode" Type="String" MaxLength="3" Unicode="true" FixedLength="true" />
+          <Property Name="Weight" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="DaysToManufacture" Type="Int32" Nullable="false" />
+          <Property Name="ProductLine" Type="String" MaxLength="2" Unicode="true" FixedLength="true" />
+          <Property Name="Class" Type="String" MaxLength="2" Unicode="true" FixedLength="true" />
+          <Property Name="Style" Type="String" MaxLength="2" Unicode="true" FixedLength="true" />
+          <Property Name="ProductSubcategoryID" Type="Int32" />
+          <Property Name="ProductModelID" Type="Int32" />
+          <Property Name="SellStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="SellEndDate" Type="DateTime" />
+          <Property Name="DiscontinuedDate" Type="DateTime" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="DataDeAlteracao" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+        </EntityType>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NationalIDNumber" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ContactID" Nullable="false" />
+          <Property Type="String" Name="LoginID" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ManagerID" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" />
+          <Property Type="String" Name="MaritalStatus" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Gender" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="HireDate" Nullable="false" />
+          <Property Type="Boolean" Name="SalariedFlag" Nullable="false" />
+          <Property Type="Int16" Name="VacationHours" Nullable="false" />
+          <Property Type="Int16" Name="SickLeaveHours" Nullable="false" />
+          <Property Type="Boolean" Name="CurrentFlag" Nullable="false" />
+          <Property Type="Guid" Name="rowguid" Nullable="false" />
+          <Property Type="DateTime" Name="DataDeAlteracao" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="AdventureWorksModel.FK_Employee_Contact_ContactID" FromRole="Employee" ToRole="Contato" />
+          <NavigationProperty Name="Employee1" Relationship="AdventureWorksModel.FK_Employee_Employee_ManagerID" FromRole="Employee" ToRole="Employee1" />
+          <NavigationProperty Name="Employee2" Relationship="AdventureWorksModel.FK_Employee_Employee_ManagerID" FromRole="Employee1" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Employee_Contact_ContactID">
+          <End Type="AdventureWorksModel.Contato" Role="Contato" Multiplicity="1" />
+          <End Type="AdventureWorksModel.Funcionario" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contato">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Employee_ManagerID">
+          <End Type="AdventureWorksModel.Funcionario" Role="Employee" Multiplicity="0..1" />
+          <End Type="AdventureWorksModel.Funcionario" Role="Employee1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="AdventureWorksEntities">
+          <EntitySetMapping Name="Contatos"><EntityTypeMapping TypeName="AdventureWorksModel.Contato"><MappingFragment StoreEntitySet="Contact">
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="NameStyle" ColumnName="NameStyle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Nome" ColumnName="FirstName" />
+            <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+            <ScalarProperty Name="Sobrenome" ColumnName="LastName" />
+            <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+            <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+            <ScalarProperty Name="EmailPromotion" ColumnName="EmailPromotion" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+            <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+            <ScalarProperty Name="AdditionalContactInfo" ColumnName="AdditionalContactInfo" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="DataDeAlteracao" ColumnName="ModifiedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Produtos"><EntityTypeMapping TypeName="AdventureWorksModel.Produto"><MappingFragment StoreEntitySet="Product">
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="Nome" ColumnName="Name" />
+            <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+            <ScalarProperty Name="MakeFlag" ColumnName="MakeFlag" />
+            <ScalarProperty Name="FinishedGoodsFlag" ColumnName="FinishedGoodsFlag" />
+            <ScalarProperty Name="Color" ColumnName="Color" />
+            <ScalarProperty Name="SafetyStockLevel" ColumnName="SafetyStockLevel" />
+            <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+            <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+            <ScalarProperty Name="Preco" ColumnName="ListPrice" />
+            <ScalarProperty Name="Size" ColumnName="Size" />
+            <ScalarProperty Name="SizeUnitMeasureCode" ColumnName="SizeUnitMeasureCode" />
+            <ScalarProperty Name="WeightUnitMeasureCode" ColumnName="WeightUnitMeasureCode" />
+            <ScalarProperty Name="Weight" ColumnName="Weight" />
+            <ScalarProperty Name="DaysToManufacture" ColumnName="DaysToManufacture" />
+            <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+            <ScalarProperty Name="Class" ColumnName="Class" />
+            <ScalarProperty Name="Style" ColumnName="Style" />
+            <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+            <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+            <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+            <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+            <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="DataDeAlteracao" ColumnName="ModifiedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Funcionarios">
+            <EntityTypeMapping TypeName="AdventureWorksModel.Funcionario">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="DataDeAlteracao" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="CurrentFlag" ColumnName="CurrentFlag" />
+                <ScalarProperty Name="SickLeaveHours" ColumnName="SickLeaveHours" />
+                <ScalarProperty Name="VacationHours" ColumnName="VacationHours" />
+                <ScalarProperty Name="SalariedFlag" ColumnName="SalariedFlag" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="NationalIDNumber" ColumnName="NationalIDNumber" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="AWModel">
+        <EntityTypeShape EntityType="AdventureWorksModel.Contato" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksModel.Produto" Width="2.125" PointX="6.125" PointY="0.75" Height="5.8263151041666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksModel.Funcionario" Width="1.5" PointX="3.375" PointY="0.75" Height="4.6725065104166674" />
+        <AssociationConnector Association="AdventureWorksModel.FK_Employee_Contact_ContactID" >
+          <ConnectorPoint PointX="2.25" PointY="2.7978011067708328" />
+          <ConnectorPoint PointX="3.375" PointY="2.7978011067708328" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdventureWorksModel.FK_Employee_Employee_ManagerID" >
+          <ConnectorPoint PointX="3.9069230769230767" PointY="5.4225065104166674" />
+          <ConnectorPoint PointX="3.9069230769230767" PointY="5.6725065104166674" />
+          <ConnectorPoint PointX="4.3534615384615378" PointY="5.6725065104166674" />
+          <ConnectorPoint PointX="4.3534615384615378" PointY="5.4225065104166674" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

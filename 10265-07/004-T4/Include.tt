@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" #>
+<#@ output extension="txt" #>
+linha 1 do arquivo Codigo.tt
+<#@ include file="Arquivo.txt" #>
+<#
+// comentário 1
+
+/*
+	comentário 1
+	comentário 2
+	comentário 3
+*/
+#>
+linha 2 do arquivo Codigo.tt

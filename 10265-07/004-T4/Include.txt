@@ -1,0 +1,5 @@
+﻿linha 1 do arquivo Codigo.tt
+	conteúdo (string verbatim) do Arquivo.txt
+	\n\n\n
+	@@@ 
+linha 2 do arquivo Codigo.tt

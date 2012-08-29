@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:13717/ContactService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/_004_WCF" />
+  <xs:element name="GetFirst10">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFirst10Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/_004_WCF" minOccurs="0" name="GetFirst10Result" nillable="true" type="q1:ArrayOfContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByContactId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="contactID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByContactIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/_004_WCF" minOccurs="0" name="GetByContactIdResult" nillable="true" type="q2:Contact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

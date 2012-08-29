@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+<#@ output extension="txt" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#
+	CallContext.LogicalSetData("nome", "agnaldo");
+	CallContext.LogicalSetData("email", "agnaldo@50minutos.com.br");
+
+	var h = this.Host;
+
+	var p = h.ResolvePath("Parameter.tt");
+	
+	var e = new Engine();
+	
+	var txt = e.ProcessTemplate(File.ReadAllText(p), h);
+
+	CallContext.FreeNamedDataSlot("nome");
+	CallContext.FreeNamedDataSlot("email");
+
+	this.Write(txt);
+#>

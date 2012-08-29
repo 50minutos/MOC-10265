@@ -1,0 +1,3 @@
+﻿	conteúdo (string verbatim) do Arquivo.txt
+	\n\n\n
+	@@@ 

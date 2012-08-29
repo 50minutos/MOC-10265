@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10265-01", "10265-01\10265-01.csproj", "{3B927044-BD39-4E1C-B09E-3CD5EAA491F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001-AplicacaoMonoliticaADONet", "001-AplicacaoMonoliticaADONet\001-AplicacaoMonoliticaADONet.csproj", "{2A922BD3-385E-4A6B-944A-C7455FE1F953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "002-AplicacaoMonoliticaLinqToSql", "002-AplicacaoMonoliticaLinqToSql\002-AplicacaoMonoliticaLinqToSql.csproj", "{C5F46956-8400-4818-A76C-CEF4C678EF28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "003-AplicacaoMonoliticaEntityFramework", "003-AplicacaoMonoliticaEntityFramework\003-AplicacaoMonoliticaEntityFramework.csproj", "{77D7CF63-E0F6-4D1F-9BFD-DA80B7D4858D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B927044-BD39-4E1C-B09E-3CD5EAA491F2}.Debug|x86.ActiveCfg = Debug|x86
+		{3B927044-BD39-4E1C-B09E-3CD5EAA491F2}.Debug|x86.Build.0 = Debug|x86
+		{3B927044-BD39-4E1C-B09E-3CD5EAA491F2}.Release|x86.ActiveCfg = Release|x86
+		{3B927044-BD39-4E1C-B09E-3CD5EAA491F2}.Release|x86.Build.0 = Release|x86
+		{2A922BD3-385E-4A6B-944A-C7455FE1F953}.Debug|x86.ActiveCfg = Debug|x86
+		{2A922BD3-385E-4A6B-944A-C7455FE1F953}.Debug|x86.Build.0 = Debug|x86
+		{2A922BD3-385E-4A6B-944A-C7455FE1F953}.Release|x86.ActiveCfg = Release|x86
+		{2A922BD3-385E-4A6B-944A-C7455FE1F953}.Release|x86.Build.0 = Release|x86
+		{C5F46956-8400-4818-A76C-CEF4C678EF28}.Debug|x86.ActiveCfg = Debug|x86
+		{C5F46956-8400-4818-A76C-CEF4C678EF28}.Debug|x86.Build.0 = Debug|x86
+		{C5F46956-8400-4818-A76C-CEF4C678EF28}.Release|x86.ActiveCfg = Release|x86
+		{C5F46956-8400-4818-A76C-CEF4C678EF28}.Release|x86.Build.0 = Release|x86
+		{77D7CF63-E0F6-4D1F-9BFD-DA80B7D4858D}.Debug|x86.ActiveCfg = Debug|x86
+		{77D7CF63-E0F6-4D1F-9BFD-DA80B7D4858D}.Debug|x86.Build.0 = Debug|x86
+		{77D7CF63-E0F6-4D1F-9BFD-DA80B7D4858D}.Release|x86.ActiveCfg = Release|x86
+		{77D7CF63-E0F6-4D1F-9BFD-DA80B7D4858D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
