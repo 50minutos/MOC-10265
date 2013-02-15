@@ -68,28 +68,28 @@ namespace _003_AplicacaoMonoliticaEntityFramework
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Contact> Contact
+        public ObjectSet<Contato> Contatos
         {
             get
             {
-                if ((_Contact == null))
+                if ((_Contatos == null))
                 {
-                    _Contact = base.CreateObjectSet<Contact>("Contact");
+                    _Contatos = base.CreateObjectSet<Contato>("Contatos");
                 }
-                return _Contact;
+                return _Contatos;
             }
         }
-        private ObjectSet<Contact> _Contact;
+        private ObjectSet<Contato> _Contatos;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Contact EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Contatos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToContact(Contact contact)
+        public void AddToContatos(Contato contato)
         {
-            base.AddObject("Contact", contact);
+            base.AddObject("Contatos", contato);
         }
 
         #endregion
@@ -103,15 +103,15 @@ namespace _003_AplicacaoMonoliticaEntityFramework
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="AdventureWorksModel", Name="Contact")]
+    [EdmEntityTypeAttribute(NamespaceName="AdventureWorksModel", Name="Contato")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Contact : EntityObject
+    public partial class Contato : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Contact object.
+        /// Create a new Contato object.
         /// </summary>
         /// <param name="contactID">Initial value of the ContactID property.</param>
         /// <param name="nameStyle">Initial value of the NameStyle property.</param>
@@ -122,19 +122,19 @@ namespace _003_AplicacaoMonoliticaEntityFramework
         /// <param name="passwordSalt">Initial value of the PasswordSalt property.</param>
         /// <param name="rowguid">Initial value of the rowguid property.</param>
         /// <param name="modifiedDate">Initial value of the ModifiedDate property.</param>
-        public static Contact CreateContact(global::System.Int32 contactID, global::System.Boolean nameStyle, global::System.String nome, global::System.String sobrenome, global::System.Int32 emailPromotion, global::System.String passwordHash, global::System.String passwordSalt, global::System.Guid rowguid, global::System.DateTime modifiedDate)
+        public static Contato CreateContato(global::System.Int32 contactID, global::System.Boolean nameStyle, global::System.String nome, global::System.String sobrenome, global::System.Int32 emailPromotion, global::System.String passwordHash, global::System.String passwordSalt, global::System.Guid rowguid, global::System.DateTime modifiedDate)
         {
-            Contact contact = new Contact();
-            contact.ContactID = contactID;
-            contact.NameStyle = nameStyle;
-            contact.Nome = nome;
-            contact.Sobrenome = sobrenome;
-            contact.EmailPromotion = emailPromotion;
-            contact.PasswordHash = passwordHash;
-            contact.PasswordSalt = passwordSalt;
-            contact.rowguid = rowguid;
-            contact.ModifiedDate = modifiedDate;
-            return contact;
+            Contato contato = new Contato();
+            contato.ContactID = contactID;
+            contato.NameStyle = nameStyle;
+            contato.Nome = nome;
+            contato.Sobrenome = sobrenome;
+            contato.EmailPromotion = emailPromotion;
+            contato.PasswordHash = passwordHash;
+            contato.PasswordSalt = passwordSalt;
+            contato.rowguid = rowguid;
+            contato.ModifiedDate = modifiedDate;
+            return contato;
         }
 
         #endregion

@@ -9,9 +9,21 @@ namespace _005_CustomizarEdmx
     {
         static void Main(string[] args)
         {
-            var p = new Pessoa {Id = 1, Nome = "ADÃO", NomeConjuge = "EVA"};
+            var produto = new Produto
+            {
+                Id = 1,
+                Nome = "martelo"
+            };
 
-            Console.WriteLine("{0}\n{1}\n{2}", p.Id, p.Nome, p.NomeConjuge);
+            var produtoPerecivel = new Perecivel
+            {
+                Id = 2, 
+                Nome = "maçã", 
+                Vencimento = DateTime.Now.AddDays(2)
+            };
+
+            Console.WriteLine(produto);
+            Console.WriteLine(produtoPerecivel);
 
             Console.ReadKey();
         }

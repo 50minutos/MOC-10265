@@ -9,6 +9,8 @@ namespace _002_ObterDadosUsandoEntitySql
         {
             using (var e = new AdventureWorksEntities())
             {
+                //http://msdn.microsoft.com/pt-br/library/vstudio/bb387145.aspx
+                
                 const String cmd = "SELECT VALUE C FROM AdventureWorksEntities.Contatos AS C WHERE C.ContactID <= 15";
 
                 var contatos = new ObjectQuery<Contato>(cmd, e);

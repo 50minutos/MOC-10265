@@ -13,15 +13,15 @@ namespace _005_Update
         {
             using (var e = new AdventureWorksEntities())
             {
-                var c = e.Contatos.First();
+                var c = e.Contatos.FirstOrDefault(x => x.ContactID == 19978);
 
                 c.Nome += "#";
 
-                Console.WriteLine(e.Contatos.First().Nome);
+                Console.WriteLine(c.Nome);
 
                 e.SaveChanges();
 
-                Console.WriteLine(e.Contatos.First().Nome);
+                Console.WriteLine(c.Nome);
 
                 e.Detach(c);
 
@@ -34,11 +34,10 @@ namespace _005_Update
                 if (e.TryGetObjectByKey(key, out o))
                 {
                     e.ApplyCurrentValues(key.EntitySetName, c);
+                    e.SaveChanges();
                 }
 
-                e.SaveChanges();
-
-                Console.WriteLine(e.Contatos.First().Nome);
+                Console.WriteLine(e.Contatos.FirstOrDefault(x => x.ContactID == 19978).Nome);
             }
 
             Console.ReadKey();

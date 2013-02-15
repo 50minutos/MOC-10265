@@ -81,7 +81,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contact" EntityType="AdventureWorksModel.Contact" />
           <EntitySet Name="SalesOrderHeader" EntityType="AdventureWorksModel.SalesOrderHeader" />
           <AssociationSet Name="FK_SalesOrderHeader_Contact_ContactID" Association="AdventureWorksModel.FK_SalesOrderHeader_Contact_ContactID">
@@ -114,38 +114,38 @@
           <Key>
             <PropertyRef Name="SalesOrderID" />
           </Key>
-          <Property Type="Int32" Name="SalesOrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Byte" Name="RevisionNumber" Nullable="false" />
-          <Property Type="DateTime" Name="OrderDate" Nullable="false" />
-          <Property Type="DateTime" Name="DueDate" Nullable="false" />
-          <Property Type="DateTime" Name="ShipDate" />
-          <Property Type="Byte" Name="Status" Nullable="false" />
-          <Property Type="Boolean" Name="OnlineOrderFlag" Nullable="false" />
-          <Property Type="String" Name="SalesOrderNumber" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Type="String" Name="PurchaseOrderNumber" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="AccountNumber" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="CustomerID" Nullable="false" />
-          <Property Type="Int32" Name="ContactID" Nullable="false" />
-          <Property Type="Int32" Name="SalesPersonID" />
-          <Property Type="Int32" Name="TerritoryID" />
-          <Property Type="Int32" Name="BillToAddressID" Nullable="false" />
-          <Property Type="Int32" Name="ShipToAddressID" Nullable="false" />
-          <Property Type="Int32" Name="ShipMethodID" Nullable="false" />
-          <Property Type="Int32" Name="CreditCardID" />
-          <Property Type="String" Name="CreditCardApprovalCode" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="CurrencyRateID" />
-          <Property Type="Decimal" Name="SubTotal" Nullable="false" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="TaxAmt" Nullable="false" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="Freight" Nullable="false" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="TotalDue" Nullable="false" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
-          <Property Type="String" Name="Comment" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Guid" Name="rowguid" Nullable="false" />
-          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <Property Name="SalesOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RevisionNumber" Type="Byte" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" />
+          <Property Name="ShipDate" Type="DateTime" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="OnlineOrderFlag" Type="Boolean" Nullable="false" />
+          <Property Name="SalesOrderNumber" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="PurchaseOrderNumber" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="SalesPersonID" Type="Int32" />
+          <Property Name="TerritoryID" Type="Int32" />
+          <Property Name="BillToAddressID" Type="Int32" Nullable="false" />
+          <Property Name="ShipToAddressID" Type="Int32" Nullable="false" />
+          <Property Name="ShipMethodID" Type="Int32" Nullable="false" />
+          <Property Name="CreditCardID" Type="Int32" />
+          <Property Name="CreditCardApprovalCode" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="CurrencyRateID" Type="Int32" />
+          <Property Name="SubTotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="TaxAmt" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Freight" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="TotalDue" Type="Decimal" Nullable="false" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Comment" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Contact" Relationship="AdventureWorksModel.FK_SalesOrderHeader_Contact_ContactID" FromRole="SalesOrderHeader" ToRole="Contact" />
         </EntityType>
         <Association Name="FK_SalesOrderHeader_Contact_ContactID">
-          <End Type="AdventureWorksModel.Contact" Role="Contact" Multiplicity="1" />
-          <End Type="AdventureWorksModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
+          <End Role="Contact" Type="AdventureWorksModel.Contact" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksModel.SalesOrderHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactID" />
@@ -160,7 +160,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="AdventureWorksEntities">
           <EntitySetMapping Name="Contact"><EntityTypeMapping TypeName="AdventureWorksModel.Contact"><MappingFragment StoreEntitySet="Contact">
             <ScalarProperty Name="ContactID" ColumnName="ContactID" />
             <ScalarProperty Name="NameStyle" ColumnName="NameStyle" />
@@ -178,39 +178,35 @@
             <ScalarProperty Name="rowguid" ColumnName="rowguid" />
             <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SalesOrderHeader">
-            <EntityTypeMapping TypeName="AdventureWorksModel.SalesOrderHeader">
-              <MappingFragment StoreEntitySet="SalesOrderHeader">
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
-                <ScalarProperty Name="Freight" ColumnName="Freight" />
-                <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
-                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
-                <ScalarProperty Name="CurrencyRateID" ColumnName="CurrencyRateID" />
-                <ScalarProperty Name="CreditCardApprovalCode" ColumnName="CreditCardApprovalCode" />
-                <ScalarProperty Name="CreditCardID" ColumnName="CreditCardID" />
-                <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
-                <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
-                <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
-                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
-                <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
-                <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
-                <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
-                <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
-                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
-                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrderHeader"><EntityTypeMapping TypeName="AdventureWorksModel.SalesOrderHeader"><MappingFragment StoreEntitySet="SalesOrderHeader">
+            <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+            <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+            <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+            <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+            <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
+            <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+            <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+            <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+            <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+            <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+            <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+            <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+            <ScalarProperty Name="CreditCardID" ColumnName="CreditCardID" />
+            <ScalarProperty Name="CreditCardApprovalCode" ColumnName="CreditCardApprovalCode" />
+            <ScalarProperty Name="CurrencyRateID" ColumnName="CurrencyRateID" />
+            <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+            <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+            <ScalarProperty Name="Freight" ColumnName="Freight" />
+            <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+            <ScalarProperty Name="Comment" ColumnName="Comment" />
+            <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+            <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -232,13 +228,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="AdventureWorks">
-        <EntityTypeShape EntityType="AdventureWorksModel.Contact" Width="1.5" PointX="1.75" PointY="0.625" Height="4.0956022135416656" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksModel.SalesOrderHeader" Width="2.25" PointX="4.875" PointY="0.5" Height="6.4032194010416665" IsExpanded="true" />
-        <AssociationConnector Association="AdventureWorksModel.FK_SalesOrderHeader_Contact_ContactID" >
-          <ConnectorPoint PointX="3.25" PointY="2.6728011067708328" />
-          <ConnectorPoint PointX="4.875" PointY="2.6728011067708328" />
+        <EntityTypeShape EntityType="AdventureWorksModel.Contact" Width="1.5" PointX="0.75" PointY="0.5" Height="3.5644742838541665" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksModel.SalesOrderHeader" Width="2.5" PointX="3.375" PointY="0.5" Height="5.5366422526041674" IsExpanded="true" />
+        <AssociationConnector Association="AdventureWorksModel.FK_SalesOrderHeader_Contact_ContactID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.2822371419270837" />
+          <ConnectorPoint PointX="3.375" PointY="2.2822371419270837" />
         </AssociationConnector>
-        </Diagram>
+      </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

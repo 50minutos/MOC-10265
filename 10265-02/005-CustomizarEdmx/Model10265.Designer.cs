@@ -68,22 +68,6 @@ namespace _005_CustomizarEdmx
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Pessoa> Pessoas
-        {
-            get
-            {
-                if ((_Pessoas == null))
-                {
-                    _Pessoas = base.CreateObjectSet<Pessoa>("Pessoas");
-                }
-                return _Pessoas;
-            }
-        }
-        private ObjectSet<Pessoa> _Pessoas;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Produto> Produtos
         {
             get
@@ -101,14 +85,6 @@ namespace _005_CustomizarEdmx
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Pessoas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToPessoas(Pessoa pessoa)
-        {
-            base.AddObject("Pessoas", pessoa);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Produtos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToProdutos(Produto produto)
@@ -122,17 +98,9 @@ namespace _005_CustomizarEdmx
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectResult<Pessoa> GetPessoas()
+        public int GetPessoas()
         {
-            return base.ExecuteFunction<Pessoa>("GetPessoas");
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        public ObjectResult<Pessoa> GetPessoas(MergeOption mergeOption)
-        {
-            return base.ExecuteFunction<Pessoa>("GetPessoas", mergeOption);
+            return base.ExecuteFunction("GetPessoas");
         }
 
         #endregion
@@ -158,14 +126,12 @@ namespace _005_CustomizarEdmx
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nome">Initial value of the Nome property.</param>
-        /// <param name="property">Initial value of the Property property.</param>
         /// <param name="vencimento">Initial value of the Vencimento property.</param>
-        public static Perecivel CreatePerecivel(global::System.Int32 id, global::System.String nome, global::System.Decimal property, global::System.DateTime vencimento)
+        public static Perecivel CreatePerecivel(global::System.Int32 id, global::System.String nome, global::System.DateTime vencimento)
         {
             Perecivel perecivel = new Perecivel();
             perecivel.Id = id;
             perecivel.Nome = nome;
-            perecivel.Property = property;
             perecivel.Vencimento = vencimento;
             return perecivel;
         }
@@ -204,153 +170,28 @@ namespace _005_CustomizarEdmx
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Pessoa")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Pessoa : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Pessoa object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="nome">Initial value of the Nome property.</param>
-        /// <param name="endereco">Initial value of the Endereco property.</param>
-        public static Pessoa CreatePessoa(global::System.Int32 id, global::System.String nome, Endereco endereco)
-        {
-            Pessoa pessoa = new Pessoa();
-            pessoa.Id = id;
-            pessoa.Nome = nome;
-            pessoa.Endereco = StructuralObject.VerifyComplexObjectIsNotNull(endereco, "Endereco");
-            return pessoa;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Nome
-        {
-            get
-            {
-                return _Nome;
-            }
-            set
-            {
-                OnNomeChanging(value);
-                ReportPropertyChanging("Nome");
-                _Nome = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Nome");
-                OnNomeChanged();
-            }
-        }
-        private global::System.String _Nome;
-        partial void OnNomeChanging(global::System.String value);
-        partial void OnNomeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String NomeConjuge
-        {
-            get
-            {
-                return _NomeConjuge;
-            }
-            set
-            {
-                OnNomeConjugeChanging(value);
-                ReportPropertyChanging("NomeConjuge");
-                _NomeConjuge = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("NomeConjuge");
-                OnNomeConjugeChanged();
-            }
-        }
-        private global::System.String _NomeConjuge;
-        partial void OnNomeConjugeChanging(global::System.String value);
-        partial void OnNomeConjugeChanged();
-
-        #endregion
-        #region Complex Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmComplexPropertyAttribute()]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [XmlElement(IsNullable=true)]
-        [SoapElement(IsNullable=true)]
-        [DataMemberAttribute()]
-        public Endereco Endereco
-        {
-            get
-            {
-                _Endereco = GetValidValue(_Endereco, "Endereco", false, _EnderecoInitialized);
-                _EnderecoInitialized = true;
-                return _Endereco;
-            }
-            set
-            {
-                OnEnderecoChanging(value);
-                ReportPropertyChanging("Endereco");
-                _Endereco = SetValidValue(_Endereco, value, "Endereco");
-                _EnderecoInitialized = true;
-                ReportPropertyChanged("Endereco");
-                OnEnderecoChanged();
-            }
-        }
-        private Endereco _Endereco;
-        private bool _EnderecoInitialized;
-        partial void OnEnderecoChanging(Endereco value);
-        partial void OnEnderecoChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Model", Name="Produto")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     [KnownTypeAttribute(typeof(Perecivel))]
-    public abstract partial class Produto : EntityObject
+    public partial class Produto : EntityObject
     {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Produto object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="nome">Initial value of the Nome property.</param>
+        public static Produto CreateProduto(global::System.Int32 id, global::System.String nome)
+        {
+            Produto produto = new Produto();
+            produto.Id = id;
+            produto.Nome = nome;
+            return produto;
+        }
+
+        #endregion
         #region Primitive Properties
     
         /// <summary>
@@ -403,30 +244,6 @@ namespace _005_CustomizarEdmx
         private global::System.String _Nome;
         partial void OnNomeChanging(global::System.String value);
         partial void OnNomeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Property
-        {
-            get
-            {
-                return _Property;
-            }
-            set
-            {
-                OnPropertyChanging(value);
-                ReportPropertyChanging("Property");
-                _Property = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Property");
-                OnPropertyChanged();
-            }
-        }
-        private global::System.Decimal _Property;
-        partial void OnPropertyChanging(global::System.Decimal value);
-        partial void OnPropertyChanged();
 
         #endregion
     

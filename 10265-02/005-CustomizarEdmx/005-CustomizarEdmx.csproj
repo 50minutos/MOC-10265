@@ -66,6 +66,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model10265.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Perecivel.cs" />
+    <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

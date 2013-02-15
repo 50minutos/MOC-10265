@@ -24,7 +24,7 @@ namespace _002_ObjectContextObjectStateManager
 
                 Console.WriteLine("{0} {1}", c.Nome, c.Sobrenome);
 
-                //e.SaveChanges();
+                e.SaveChanges();
             }
 
         fim: //não usar label... isso é só uma brincadeira...

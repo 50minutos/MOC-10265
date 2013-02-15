@@ -73,28 +73,28 @@ namespace _004_ObterDadosUsandoStoredProcedures
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Funcionario> Employee
+        public ObjectSet<Funcionario> Funcionarios
         {
             get
             {
-                if ((_Employee == null))
+                if ((_Funcionarios == null))
                 {
-                    _Employee = base.CreateObjectSet<Funcionario>("Employee");
+                    _Funcionarios = base.CreateObjectSet<Funcionario>("Funcionarios");
                 }
-                return _Employee;
+                return _Funcionarios;
             }
         }
-        private ObjectSet<Funcionario> _Employee;
+        private ObjectSet<Funcionario> _Funcionarios;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Employee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Funcionarios EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToEmployee(Funcionario funcionario)
+        public void AddToFuncionarios(Funcionario funcionario)
         {
-            base.AddObject("Employee", funcionario);
+            base.AddObject("Funcionarios", funcionario);
         }
 
         #endregion

@@ -70,8 +70,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AdventureWorks.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
   </ItemGroup>
   <ItemGroup>

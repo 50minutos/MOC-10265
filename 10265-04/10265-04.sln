@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "005-Update", "005-Update\00
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "006-Delete", "006-Delete\006-Delete.csproj", "{133A619D-F1A6-4942-8A3C-14A078DDE83C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "007-CRUD", "007-CRUD\007-CRUD.csproj", "{3C1CB0D2-DE45-4432-BC98-31C28E626745}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,16 @@ Global
 		{133A619D-F1A6-4942-8A3C-14A078DDE83C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{133A619D-F1A6-4942-8A3C-14A078DDE83C}.Release|x86.ActiveCfg = Release|x86
 		{133A619D-F1A6-4942-8A3C-14A078DDE83C}.Release|x86.Build.0 = Release|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Debug|x86.ActiveCfg = Debug|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Debug|x86.Build.0 = Debug|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Release|Any CPU.ActiveCfg = Release|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Release|Mixed Platforms.Build.0 = Release|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Release|x86.ActiveCfg = Release|x86
+		{3C1CB0D2-DE45-4432-BC98-31C28E626745}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

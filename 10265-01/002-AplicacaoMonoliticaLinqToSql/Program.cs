@@ -14,22 +14,21 @@ namespace _002_AplicacaoMonoliticaLinqToSql
 
             using (var dc = new AdventureWorksDataContext())
             {
-                //dc.Log = Console.Out;
+                dc.Log = Console.Out;
 
-                var nomes = dc.GetTable<Contact>()
+                var nomes = dc.GetTable<Contato>()
                             .Take(10)
                             .Select(n => n);
 
-                foreach (var item in nomes)
-                {
-                    var nome = String.Format("{0} {1} {2}", item.Nome, item.NomeDoMeio, item.Sobrenome);
+                //foreach (var item in nomes)
+                //{
+                //    var nome = String.Format("{0} {1} {2}", item.Nome, item.NomeDoMeio, item.Sobrenome);
 
-                    Console.WriteLine(nome.Replace("  ", " "));
-                }
-
-                //foreach (var nome in nomes.Select(item => String.Format("{0} {1} {2}", item.Nome, item.NomeDoMeio, item.Sobrenome)))
                 //    Console.WriteLine(nome.Replace("  ", " "));
+                //}
 
+                foreach (var nome in nomes.Select(item => String.Format("{0} {1} {2}", item.Nome, item.NomeDoMeio, item.Sobrenome)))
+                    Console.WriteLine(nome.Replace("  ", " "));
             }
 
             Console.ReadKey();

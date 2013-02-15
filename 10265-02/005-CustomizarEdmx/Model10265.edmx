@@ -6,7 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="ModelStoreContainer">
-    <EntitySet Name="Pessoas" EntityType="Model.Store.Pessoas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Produtos" EntityType="Model.Store.Produtos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Produtos_Perecivel" EntityType="Model.Store.Produtos_Perecivel" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_Perecivel_inherits_Produto" Association="Model.Store.FK_Perecivel_inherits_Produto">
@@ -14,25 +13,12 @@
       <End Role="Perecivel" EntitySet="Produtos_Perecivel" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Pessoas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NomeConjuge" Type="varchar" Nullable="true" MaxLength="50" />
-    <Property Name="Endereco_Rua" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Endereco_Numero" Type="int" Nullable="false" />
-    <Property Name="Endereco_CEP" Type="nvarchar" Nullable="false" MaxLength="8" />
-    <Property Name="Endereco_Complemento" Type="nvarchar" Nullable="false" MaxLength="15" />
-  </EntityType>
   <EntityType Name="Produtos">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Property" Type="decimal" Nullable="false" Precision="9" Scale="2" />
   </EntityType>
   <EntityType Name="Produtos_Perecivel">
     <Key>
@@ -58,26 +44,15 @@
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Pessoas" EntityType="Model.Pessoa" />
           <EntitySet Name="Produtos" EntityType="Model.Produto" />
-          <FunctionImport Name="GetPessoas" EntitySet="Pessoas" ReturnType="Collection(Model.Pessoa)" />
+          <FunctionImport Name="GetPessoas" />
           </EntityContainer>
-        <EntityType Name="Pessoa">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Nome" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="NomeConjuge" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Endereco" Type="Model.Endereco" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Produto" Abstract="true">
+        <EntityType Name="Produto" Abstract="false">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" />
-          <Property Type="Decimal" Name="Property" Nullable="false" Precision="9" Scale="2" />
         </EntityType>
         <EntityType Name="Perecivel" BaseType="Model.Produto" >
           <Property Type="DateTime" Name="Vencimento" Nullable="false" />
@@ -94,27 +69,11 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
-    <EntitySetMapping Name="Pessoas">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.Pessoa)">
-        <MappingFragment StoreEntitySet="Pessoas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nome" ColumnName="Nome" />
-          <ScalarProperty Name="NomeConjuge" ColumnName="NomeConjuge" />
-          <ComplexProperty Name="Endereco" TypeName="Model.Endereco">
-            <ScalarProperty Name="Rua" ColumnName="Endereco_Rua" />
-            <ScalarProperty Name="Numero" ColumnName="Endereco_Numero" />
-            <ScalarProperty Name="CEP" ColumnName="Endereco_CEP" />
-            <ScalarProperty Name="Complemento" ColumnName="Endereco_Complemento" />
-          </ComplexProperty>
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Produtos">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Produto)">
         <MappingFragment StoreEntitySet="Produtos">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
-          <ScalarProperty Name="Property" ColumnName="Property" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model.Perecivel)">
@@ -143,13 +102,14 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AdventureWorks">
-        <EntityTypeShape EntityType="Model.Pessoa" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Model.Produto" Width="1.5" PointX="3.625" PointY="0.75" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="Model.Perecivel" Width="1.5" PointX="3.625" PointY="3.125" Height="1.2110807291666674" />
+      <Diagram Name="AdventureWorks" ZoomLevel="131">
+        <EntityTypeShape EntityType="Model.Produto" Width="1.5" PointX="2.125" PointY="0.625" Height="1.2636116536458335" />
+        <EntityTypeShape EntityType="Model.Perecivel" Width="1.5" PointX="4.125" PointY="2.75" Height="1.0992643229166665" />
         <InheritanceConnector EntityType="Model.Perecivel" ManuallyRouted="false" >
-          <ConnectorPoint PointX="4.375" PointY="2.3456835937499996" />
-          <ConnectorPoint PointX="4.375" PointY="3.125" />
+          <ConnectorPoint PointX="2.875" PointY="1.8886116536458335" />
+          <ConnectorPoint PointX="2.875" PointY="2.375" />
+          <ConnectorPoint PointX="4.6365680851016933" PointY="2.375" />
+          <ConnectorPoint PointX="4.6365680851016933" PointY="2.75" />
         </InheritanceConnector>
         </Diagram>
     </Diagrams>

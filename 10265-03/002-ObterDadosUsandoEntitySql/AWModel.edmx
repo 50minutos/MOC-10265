@@ -99,7 +99,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AWModel">
+      <Diagram Name="AWModel" ZoomLevel="149">
         <EntityTypeShape EntityType="AdventureWorksModel.Contato" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
       </Diagram>
     </Diagrams>

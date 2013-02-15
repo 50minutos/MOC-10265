@@ -13,7 +13,7 @@ namespace _006_Delete
                 var c =
                     e.Contatos.FirstOrDefault(
                         x =>
-                        x.Nome.Equals("Adão", StringComparison.InvariantCultureIgnoreCase) &&
+                        x.Nome.Equals("Adão", /*APAGAR O ADÃO#@*/ StringComparison.InvariantCultureIgnoreCase) &&
                         x.Sobrenome.Equals("da Silva", StringComparison.InvariantCultureIgnoreCase));
 
                 if (c == null) return;
@@ -25,7 +25,7 @@ namespace _006_Delete
 
                 Console.WriteLine(e.Contatos.FirstOrDefault(
                         x =>
-                        x.Nome.Equals("Adão", StringComparison.InvariantCultureIgnoreCase) &&
+                        x.Nome.Equals("Adão", /*VERIFICAR O ADÃO#@*/StringComparison.InvariantCultureIgnoreCase) &&
                         x.Sobrenome.Equals("da Silva", StringComparison.InvariantCultureIgnoreCase)) == null
                         );
             }

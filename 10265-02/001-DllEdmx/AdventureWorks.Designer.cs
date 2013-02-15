@@ -29,32 +29,32 @@ namespace _001_DllEdmx
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class Entities : ObjectContext
+    public partial class AdventureWorksEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new Entities object using the connection string found in the 'Entities' section of the application configuration file.
+        /// Initializes a new AdventureWorksEntities object using the connection string found in the 'AdventureWorksEntities' section of the application configuration file.
         /// </summary>
-        public Entities() : base("name=Entities", "Entities")
+        public AdventureWorksEntities() : base("name=AdventureWorksEntities", "AdventureWorksEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Entities object.
+        /// Initialize a new AdventureWorksEntities object.
         /// </summary>
-        public Entities(string connectionString) : base(connectionString, "Entities")
+        public AdventureWorksEntities(string connectionString) : base(connectionString, "AdventureWorksEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Entities object.
+        /// Initialize a new AdventureWorksEntities object.
         /// </summary>
-        public Entities(EntityConnection connection) : base(connection, "Entities")
+        public AdventureWorksEntities(EntityConnection connection) : base(connection, "AdventureWorksEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

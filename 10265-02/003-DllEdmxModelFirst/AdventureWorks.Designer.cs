@@ -73,52 +73,52 @@ namespace _003_DllEdmxModelFirst
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Pessoa> PESSOA
+        public ObjectSet<Pessoa> Pessoas
         {
             get
             {
-                if ((_PESSOA == null))
+                if ((_Pessoas == null))
                 {
-                    _PESSOA = base.CreateObjectSet<Pessoa>("PESSOA");
+                    _Pessoas = base.CreateObjectSet<Pessoa>("Pessoas");
                 }
-                return _PESSOA;
+                return _Pessoas;
             }
         }
-        private ObjectSet<Pessoa> _PESSOA;
+        private ObjectSet<Pessoa> _Pessoas;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Telefone> TELEFONE
+        public ObjectSet<Telefone> Telefones
         {
             get
             {
-                if ((_TELEFONE == null))
+                if ((_Telefones == null))
                 {
-                    _TELEFONE = base.CreateObjectSet<Telefone>("TELEFONE");
+                    _Telefones = base.CreateObjectSet<Telefone>("Telefones");
                 }
-                return _TELEFONE;
+                return _Telefones;
             }
         }
-        private ObjectSet<Telefone> _TELEFONE;
+        private ObjectSet<Telefone> _Telefones;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PESSOA EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Pessoas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPESSOA(Pessoa pessoa)
+        public void AddToPessoas(Pessoa pessoa)
         {
-            base.AddObject("PESSOA", pessoa);
+            base.AddObject("Pessoas", pessoa);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TELEFONE EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Telefones EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTELEFONE(Telefone telefone)
+        public void AddToTelefones(Telefone telefone)
         {
-            base.AddObject("TELEFONE", telefone);
+            base.AddObject("Telefones", telefone);
         }
 
         #endregion
@@ -217,7 +217,7 @@ namespace _003_DllEdmxModelFirst
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("AdventureWorks", "PessoaTelefone", "Telefone")]
-        public EntityCollection<Telefone> Telefone
+        public EntityCollection<Telefone> Telefones
         {
             get
             {
@@ -250,13 +250,13 @@ namespace _003_DllEdmxModelFirst
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="numero">Initial value of the Numero property.</param>
-        /// <param name="idPessoa">Initial value of the IdPessoa property.</param>
-        public static Telefone CreateTelefone(global::System.Int32 id, global::System.String numero, global::System.Int32 idPessoa)
+        /// <param name="pessoaId">Initial value of the PessoaId property.</param>
+        public static Telefone CreateTelefone(global::System.Int32 id, global::System.String numero, global::System.Int32 pessoaId)
         {
             Telefone telefone = new Telefone();
             telefone.Id = id;
             telefone.Numero = numero;
-            telefone.IdPessoa = idPessoa;
+            telefone.PessoaId = pessoaId;
             return telefone;
         }
 
@@ -319,24 +319,24 @@ namespace _003_DllEdmxModelFirst
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 IdPessoa
+        public global::System.Int32 PessoaId
         {
             get
             {
-                return _IdPessoa;
+                return _PessoaId;
             }
             set
             {
-                OnIdPessoaChanging(value);
-                ReportPropertyChanging("IdPessoa");
-                _IdPessoa = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IdPessoa");
-                OnIdPessoaChanged();
+                OnPessoaIdChanging(value);
+                ReportPropertyChanging("PessoaId");
+                _PessoaId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PessoaId");
+                OnPessoaIdChanged();
             }
         }
-        private global::System.Int32 _IdPessoa;
-        partial void OnIdPessoaChanging(global::System.Int32 value);
-        partial void OnIdPessoaChanged();
+        private global::System.Int32 _PessoaId;
+        partial void OnPessoaIdChanging(global::System.Int32 value);
+        partial void OnPessoaIdChanged();
 
         #endregion
     

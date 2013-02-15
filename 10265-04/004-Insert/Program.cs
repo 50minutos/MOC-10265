@@ -29,7 +29,8 @@ namespace _004_Insert
                     ModifiedDate = DateTime.Now
                 };
 
-                e.AddToContatos(c);
+                //e.AddToContatos(c);
+                e.Contatos.AddObject(c);
 
                 Console.WriteLine("{0} {1}", c.Nome, c.Sobrenome);
 
