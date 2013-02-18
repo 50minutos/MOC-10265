@@ -8,11 +8,11 @@ namespace _002_Concorrencia
 {
     class Program
     {
-        private static readonly Random R;
+        private static readonly Random r;
 
         static Program()
         {
-            R = R ?? new Random();
+            r = r ?? new Random();
         }
 
         static void Main(string[] args)
@@ -20,8 +20,8 @@ namespace _002_Concorrencia
             //for (var i = 0; i < 5; i++)
             //    new Thread(AlterarContato).Start();
 
-            //for (var i = 0; i < 5; i++)
-            //    new Thread(AlterarProduto).Start();
+            for (var i = 0; i < 5; i++)
+                new Thread(AlterarProduto).Start();
 
             Console.ReadKey();
         }
@@ -52,8 +52,9 @@ namespace _002_Concorrencia
                 Console.WriteLine(p.Preco);
 
                 p.Preco = ObterPreco();
+                
                 //p.DataDeAlteracao = DateTime.Now;
-
+                //ver concurrency mode da prop...
 
                 e.SaveChanges();
 
@@ -63,12 +64,12 @@ namespace _002_Concorrencia
 
         private static int ObterPreco()
         {
-            return R.Next(1, 101);
+            return r.Next(1, 101);
         }
 
         private static String ObterComplemento()
         {
-            return ((char)R.Next(65, 91)).ToString(CultureInfo.InvariantCulture);
+            return ((char)r.Next(65, 91)).ToString(CultureInfo.InvariantCulture);
         }
     }
 }

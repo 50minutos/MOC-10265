@@ -55,6 +55,7 @@ namespace _007_Asynchronous
         static void BwRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Console.WriteLine("BwRunWorker INI");
+           
             if (e.Error == null)
             {
                 Console.WriteLine("Inseri o contato: {0}", e.Result);

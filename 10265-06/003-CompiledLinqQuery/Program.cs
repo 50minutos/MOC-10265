@@ -21,8 +21,10 @@ namespace _003_CompiledLinqQuery
 
                 s.Start();
 
-                var contatos = Query(e);
-
+                //var contatos = Query(e);
+                //ou
+                var contatos = from c in e.Contatos select c;
+                
                 foreach (var contato in contatos)
                 {
                     contato.Nome = contato.Nome;

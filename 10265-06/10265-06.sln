@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "006-LogSqlStatements", "006
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "007-Asynchronous", "007-Asynchronous\007-Asynchronous.csproj", "{BDC5FE5B-4E63-4976-AFE7-0201145836EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "008-DropDownListGridView", "008-DropDownListGridView\008-DropDownListGridView.csproj", "{503FF42D-8CC5-4085-8073-CCD79FB5513D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,16 @@ Global
 		{BDC5FE5B-4E63-4976-AFE7-0201145836EF}.Release|Mixed Platforms.Build.0 = Release|x86
 		{BDC5FE5B-4E63-4976-AFE7-0201145836EF}.Release|x86.ActiveCfg = Release|x86
 		{BDC5FE5B-4E63-4976-AFE7-0201145836EF}.Release|x86.Build.0 = Release|x86
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{503FF42D-8CC5-4085-8073-CCD79FB5513D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

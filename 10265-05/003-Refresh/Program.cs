@@ -9,11 +9,11 @@ namespace _003_Refresh
 {
     class Program
     {
-        private static readonly Random R;
+        private static readonly Random r;
 
         static Program()
         {
-            R = R ?? new Random();
+            r = r ?? new Random();
         }
         
         static void Main(string[] args)
@@ -22,6 +22,7 @@ namespace _003_Refresh
             {
                 new Thread(AlterarProduto).Start();
             }
+
             Console.ReadKey();
         }
 
@@ -33,7 +34,7 @@ namespace _003_Refresh
 
                 Console.WriteLine(p.Preco);
 
-                p.Preco = R.Next(1, 101);
+                p.Preco = r.Next(1, 101);
                 p.DataDeAlteracao = DateTime.Now;
 
                 try
@@ -42,11 +43,11 @@ namespace _003_Refresh
                 }
                 catch (OptimisticConcurrencyException)
                 {
-                    Console.WriteLine("Client wins");
-                    e.Refresh(RefreshMode.ClientWins, p);
-                    
-                    //Console.WriteLine("Store wins");
-                    //e.Refresh(RefreshMode.StoreWins, p);
+                    //Console.WriteLine("Client wins");
+                    //e.Refresh(RefreshMode.ClientWins, p);
+
+                    Console.WriteLine("Store wins");
+                    e.Refresh(RefreshMode.StoreWins, p);
                     
                     e.SaveChanges();
                 }

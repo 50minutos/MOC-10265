@@ -15,14 +15,14 @@ namespace _004_TransactionScope
                     try
                     {
                         var c = new Contato
-                                            {
-                                                Nome = "Adão",
-                                                Sobrenome = "da Silva",
-                                                PasswordHash = "abc",
-                                                PasswordSalt = "xyz",
-                                                rowguid = Guid.NewGuid(),
-                                                DataDeAlteracao = DateTime.Now
-                                            };
+                            {
+                                Nome = "Adão",
+                                Sobrenome = "da Silva",
+                                PasswordHash = "abc",
+                                PasswordSalt = "xyz",
+                                rowguid = Guid.NewGuid(),
+                                DataDeAlteracao = DateTime.Now
+                            };
 
                         e.Contatos.AddObject(c);
 

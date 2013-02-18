@@ -9,10 +9,10 @@ namespace _002_MergeOption
     {
         static void Main(string[] args)
         {
-            MostrarMergeOption(MergeOption.AppendOnly);
+            //MostrarMergeOption(MergeOption.AppendOnly);
             //MostrarMergeOption(MergeOption.PreserveChanges);
             //MostrarMergeOption(MergeOption.OverwriteChanges);
-            //MostrarMergeOption(MergeOption.NoTracking);
+            MostrarMergeOption(MergeOption.NoTracking);
 
             Console.ReadKey();
         }
