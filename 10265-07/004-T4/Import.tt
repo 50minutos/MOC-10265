@@ -3,10 +3,10 @@
 <#@ output extension="txt" #>
 <#= new StringBuilder()
 	.Append("Adão")
-	.Append("\n")
+	.AppendLine()
 	.Append("Eva")
-	.Append("\n")
+	.AppendLine()
 	.Append("Caim")
-	.Append("\n")
+	.AppendLine()
 	.Append("Abel")
 	.ToString() #>

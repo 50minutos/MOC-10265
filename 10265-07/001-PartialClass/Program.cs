@@ -21,10 +21,12 @@ namespace _001_PartialClass
             p.Acordar();
             p.Comer();
             p.Dormir();
+            //p.Pensar();
+            p.ChamarMetodosParciais();
 
             Console.WriteLine();
 
-            var q = new Pessoa(1, "Caim", fumante: true);
+            var q = new Pessoa(2, "Caim", fumante: true);
 
             Console.WriteLine(q);
 

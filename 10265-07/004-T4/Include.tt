@@ -1,6 +1,6 @@
 ﻿<#@ template language="C#" #>
 <#@ output extension="txt" #>
-linha 1 do arquivo Codigo.tt
+linha 1 do arquivo Include.tt
 <#@ include file="Arquivo.txt" #>
 <#
 // comentário 1
@@ -11,4 +11,4 @@ linha 1 do arquivo Codigo.tt
 	comentário 3
 */
 #>
-linha 2 do arquivo Codigo.tt
+linha 2 do arquivo Include.tt

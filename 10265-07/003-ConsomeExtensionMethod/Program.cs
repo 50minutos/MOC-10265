@@ -21,7 +21,7 @@ namespace _003_ConsomeExtensionMethod
 
             //MostrarOnXXXChangXXX();
 
-            MostrarOnPropertyChangXXX();
+            //MostrarOnPropertyChangXXX();
 
             Console.ReadKey();
         }
@@ -60,8 +60,8 @@ namespace _003_ConsomeExtensionMethod
         {
             using (var e = new AdventureWorksEntities())
             {
-                e.Contatos.First().Nome += " alterado";
-                //e.Contatos.First().Nome = null;
+                //e.Contatos.First().Nome += " alterado";
+                e.Contatos.First().Nome = null;
             }
         }
 
@@ -94,7 +94,7 @@ namespace _003_ConsomeExtensionMethod
 
             Console.WriteLine(nomes.Count("ADÃO"));
 
-            Console.WriteLine(new string('-', 80));
+            Console.WriteLine(new String('-', 80));
 
             var numeros = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
 

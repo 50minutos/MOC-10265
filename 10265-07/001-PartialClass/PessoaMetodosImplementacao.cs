@@ -2,7 +2,7 @@
 
 namespace _001_PartialClass
 {
-    public partial class Pessoa
+    partial class Pessoa
     {
         public Pessoa(int id = 0, String nome = "nome não informado", Sexo sexo = Sexo.Masculino, bool fumante = false)
         {
@@ -16,8 +16,14 @@ namespace _001_PartialClass
         public void Comer() { Console.WriteLine("Pessoa.Comer()"); }
         public void Dormir() { Console.WriteLine("Pessoa.Dormir()"); }
 
-        partial void Pensar(){Console.WriteLine("Pessoa.Nascer()");}
-       
+        partial void Pensar(){Console.WriteLine("Pessoa.Pensar()");}
+
+        public void ChamarMetodosParciais()
+        {
+            Pensar();
+            Trabalhar();
+        }
+
         public override string ToString()
         {
             return String.Format("{0} - {1} - {2} - {3}", Id, Nome, Sexo, Fumante);

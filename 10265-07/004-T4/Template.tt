@@ -2,6 +2,5 @@
 /*
 veja os arquivos gerados na pasta 
 	<#= Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) #>\Temp 
-
 Host: <#= Host.TemplateFile #>
 */

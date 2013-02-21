@@ -12,7 +12,8 @@ namespace _000_AW
 
         partial void OnNomeChanging(String value)
         {
-            if (String.IsNullOrEmpty(value)) throw new Exception("O nome não pode ser null ou string de comprimento zero");
+            Trace.Assert(!String.IsNullOrEmpty(value), "O nome não pode ser null ou string de comprimento zero");
+
             Debug.Print("o nome está sendo alterado de {0} para {1}", Nome, value);
         }
     }

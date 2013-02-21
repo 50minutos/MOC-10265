@@ -5,6 +5,7 @@
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
 <#
 	var s = new TextTemplatingSession();
+
 	s["nome"] = "agnaldo";
 	s["email"] = "agnaldo@50minutos.com.br";
 
